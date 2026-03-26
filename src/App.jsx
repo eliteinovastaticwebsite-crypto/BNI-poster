@@ -4,7 +4,7 @@ import mdPhoto from "./assets/md-photo.png";
 import bniLogo from "./assets/bni-logo.png";
 import companyLogo from "./assets/company-logo.png";
 import bannerBg from "./assets/MobileApplicationDevelopment.jpeg";
-import bodyBg from "./assets/bg-body.jpg";
+import bodyBg from "./assets/bgbody.jpg";
 
 const MD_PHOTO = mdPhoto;
 
@@ -38,55 +38,115 @@ export default function App() {
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
         body{background:#06090f}
 
-        /* === POSTER: 14.7cm × 21cm @ 96dpi = 555px × 794px === */
         .poster{font-family:'Plus Jakarta Sans',sans-serif;width:555px;height:794px;position:relative;overflow:hidden;display:flex;flex-direction:column;background:rgba(0,0,0,0.2);box-shadow:0 0 0 1px rgba(0,60,200,.18),0 22px 72px rgba(0,40,180,.55),0 5px 20px rgba(0,0,0,.45);}
 
-        /* BANNER — scaled from 265px → 215px */
+        /* BANNER */
         .banner{position:relative;height:215px;flex-shrink:0;overflow:hidden;z-index:2;}
         .banner::before{content:'';position:absolute;inset:0;z-index:3;pointer-events:none;background:repeating-linear-gradient(-52deg,transparent,transparent 20px,rgba(255,255,255,.03) 20px,rgba(255,255,255,.03) 21px);}
         .b-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(118deg,rgba(0,10,40,.93) 0%,rgba(0,22,80,.86) 35%,rgba(0,44,160,.72) 65%,rgba(0,55,180,.35) 100%);}
         .b-glow{position:absolute;top:-48px;right:-48px;width:243px;height:243px;z-index:2;pointer-events:none;background:radial-gradient(circle,rgba(50,150,255,.22) 0%,transparent 65%);}
         .b-wave{position:absolute;bottom:-1px;left:0;right:0;height:30px;background:#eaf3ff;clip-path:polygon(0 100%,100% 100%,100% 38%,60% 0%,0 100%);z-index:5;}
 
-        /* MD photo — scaled from 215×318 → 174×258 */
         .manager-wrap{position:absolute;right:0;bottom:-60px;width:174px;height:258px;z-index:10;}
-        .manager-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;-webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.6) 15%,black 35%),linear-gradient(to top,transparent 0%,transparent 5%,black 28%);mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.6) 15%,black 35%),linear-gradient(to top,transparent 0%,transparent 5%,black 28%);-webkit-mask-composite:destination-in;mask-composite:intersect;filter:brightness(1.07) contrast(1.06);box-shadow:0 0 20px rgba(0,120,255,.6),0 8px 32px rgba(0,0,0,.6),0 0 0 2.5px rgba(255,255,255,.25);border-radius:8px;}
+        .manager-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;-webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.6) 15%,black 35%),linear-gradient(to top,transparent 0%,transparent 5%,black 28%);mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.6) 15%,black 35%),linear-gradient(to top,transparent 0%,transparent 5%,black 28%);-webkit-mask-composite:destination-in;mask-composite:intersect;filter:brightness(1.07) contrast(1.06);border-radius:8px;}
         .manager-wrap::before{content:'';position:absolute;inset:-8px;border-radius:16px;background:radial-gradient(circle,rgba(0,140,255,.25),transparent 50%);z-index:-1;}
         .manager-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:73px;background:linear-gradient(to top,rgba(234,243,255,1) 0%,rgba(234,243,255,.7) 40%,transparent 100%);pointer-events:none;}
 
-        /* logo circle — scaled 60px → 49px */
         .logo-circle{width:49px;height:49px;border-radius:50%;flex-shrink:0;background:linear-gradient(145deg,#fff 0%,#c0d8ff 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px rgba(255,255,255,.6),0 5px 18px rgba(0,80,255,.55);overflow:hidden;border:1.5px solid rgba(255,255,255,.75);}
         .logo-circle img{width:100%;height:100%;object-fit:cover;}
 
         /* BODY */
-        .body{flex:1;position:relative;overflow:hidden;z-index:1;display:flex;flex-direction:column;padding:16px 15px 8px;}
-        .body-bg-white{position:absolute;inset:0;z-index:1;background:rgba(255,255,255,0.10);}
-        .body::before{content:'';position:absolute;opacity:0.2;z-index:0;pointer-events:none;width:324px;height:324px;border-radius:50%;background:radial-gradient(circle,rgba(0,90,255,.055) 0%,transparent 70%);top:-65px;left:-81px;}
+        .body{flex:1;position:relative;overflow:hidden;z-index:1;display:flex;flex-direction:column;padding:12px 20px 12px 20px;}
+        .body-bg-white{position:absolute;inset:0;z-index:1;background:rgba(255,255,255,0.08);}
 
-        /* feat-box — scaled max-width 240→195, padding 12 14→10 11 */
-        .feat-box{background:rgba(255,255,255,.95);border:1px solid rgba(0,80,210,.15);border-radius:10px;padding:10px 11px 10px;box-shadow:0 3px 18px rgba(0,60,200,.09),inset 0 1px 0 rgba(255,255,255,.95);backdrop-filter:blur(6px);position:relative;z-index:2;flex:1 1 0;margin-bottom:2px;max-width:195px;}
-        .feat-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#0050ff,#5ab4ff);}
+        /* BODY HEADING */
+        .body-heading-wrap{margin-bottom:8px;position:relative;z-index:2;}
+        .body-heading-line{width:28px;height:2.5px;background:linear-gradient(90deg,#0050ff,#72c6ff);border-radius:2px;margin-bottom:4px;}
+        .body-heading-main{font-size:13px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#002eaa;line-height:1.2;}
+        .body-heading-sub{font-size:10px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:#3a6adc;margin-top:2px;}
 
-        /* para-wrap — width 360→292 */
-        .para-wrap{flex:1 1 0;display:flex;flex-direction:column;gap:6px;position:relative;z-index:2;width:292px;flex-shrink:0;}
-        .para{transform:skewX(-7deg);border-radius:6px;overflow:hidden;position:relative;box-shadow:0 6px 22px rgba(0,40,200,.28);}
-        .para-inner{transform:skewX(10deg);padding:8px 11px 8px 19px;}
+        /* BODY ROW — increased gap to push right box further */
+        .body-row{display:flex;gap:24px;flex:1;position:relative;z-index:2;align-items:stretch;justify-content:space-between;}
+
+        /* BLUE FEAT BOX — fixed width */
+        .feat-box{
+          width:210px;
+          flex-shrink:0;
+          background:linear-gradient(175deg,#001050 0%,#001a70 30%,#0044cc 65%,#0062ff 100%);
+          border:1px solid rgba(120,190,255,.25);
+          border-radius:8px;
+          padding:0 0 8px 0;
+          box-shadow:0 6px 28px rgba(0,30,140,.55),inset 0 1px 0 rgba(255,255,255,.10);
+          position:relative;
+          z-index:2;
+          overflow:hidden;
+          transform:skewX(-6deg);
+        }
+        .feat-box-header{
+          background:linear-gradient(90deg,#000c3a 0%,#001560 60%,#001e80 100%);
+          padding:8px 16px 7px 16px;
+          margin-bottom:7px;
+          border-bottom:1px solid rgba(80,160,255,.20);
+          position:relative;
+        }
+        .feat-box-header::after{
+          content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;
+          background:linear-gradient(90deg,transparent,rgba(100,180,255,.35),transparent);
+        }
+        .feat-box-inner{padding:0 16px 0 16px;}
+        .feat-box::before{
+          content:'';position:absolute;top:-30px;left:-30px;width:120px;height:120px;
+          background:radial-gradient(circle,rgba(255,255,255,.12) 0%,transparent 65%);pointer-events:none;
+        }
+        .feat-box-title{
+          font-family:'Cormorant Garamond',serif;
+          font-size:14px;font-weight:700;color:#fff;
+          text-shadow:0 1px 8px rgba(0,0,0,.4);display:block;
+        }
+        .feat-list{display:flex;flex-direction:column;gap:5.5px;}
+        .feat-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#72c6ff,#fff);box-shadow:0 0 4px rgba(114,198,255,.6);}
+
+        /* PARA WRAP — increased width to fit content fully */
+        .para-wrap{
+          width:200px;
+          flex-shrink:0;
+          display:flex;
+          flex-direction:column;
+          gap:8px;
+          align-self:stretch;
+        }
+
+        /* Parallelogram — wider to show full text */
+        .para{
+          transform:skewX(-9deg);
+          border-radius:6px;
+          overflow:hidden;
+          position:relative;
+          box-shadow:0 6px 22px rgba(0,40,200,.32);
+        }
+        .para-blue{flex:0 0 auto;}
+        .para-dark{flex:1;}
+        .para-inner{padding:8px 14px 8px 16px;height:100%;}
         .para-blue{background:linear-gradient(138deg,#0034c0 0%,#0062ff 60%,#1a80ff 100%);border:1px solid rgba(120,190,255,.30);}
         .para-dark{background:linear-gradient(138deg,#001870 0%,#0042cc 100%);border:1px solid rgba(80,160,255,.20);}
-        .para::before{content:'';position:absolute;top:-22px;left:-22px;width:73px;height:73px;pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,.14) 0%,transparent 68%);}
+        .para::before{content:'';position:absolute;top:-18px;left:-18px;width:60px;height:60px;pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,.16) 0%,transparent 68%);}
 
-        /* step badge — 15→12px */
-        .step-badge{width:12px;height:12px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#72c6ff,#fff);color:#001a66;font-size:6px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+        .para-heading{
+          font-family:'Cormorant Garamond',serif;
+          font-size:12px;font-weight:700;text-transform:uppercase;
+          letter-spacing:0.08em;padding-bottom:4px;margin-bottom:5px;display:block;
+        }
 
-        /* FOOTER — height 190→154px */
+        .para-item{display:flex;gap:5px;align-items:center;margin-bottom:4px;}
+        .para-item-txt{font-size:10px;line-height:1.25;white-space:normal;word-break:break-word;}
+        .step-badge{width:14px;height:14px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#72c6ff,#fff);color:#001a66;font-size:6.5px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+        /* FOOTER */
         .footer{height:154px;flex-shrink:0;display:flex;position:relative;overflow:visible;z-index:2;border-top:1.5px solid rgba(100,178,255,.22);background:linear-gradient(135deg,#000e36 0%,#00247a 52%,#0038b8 100%);}
         .footer::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(-52deg,transparent,transparent 15px,rgba(255,255,255,.022) 15px,rgba(255,255,255,.022) 16px);}
-
-        /* bni-round — 54→44px */
         .bni-round{position:absolute;top:11px;right:16px;width:44px;height:44px;border-radius:50%;background:#fff;border:2.5px solid #fff;box-shadow:0 3px 16px rgba(0,0,0,.42),0 0 0 1px rgba(0,60,200,.20);display:flex;align-items:center;justify-content:center;z-index:30;overflow:hidden;}
         .bni-round img{width:88%;height:88%;object-fit:contain;}
-
-        .f-col{flex:1;padding:11px 11px 10px 15px;position:relative;z-index:2;justify-content:center;}
+        .f-col{flex:1;padding:11px 11px 10px 15px;position:relative;z-index:2;}
         .f-divider{width:1px;background:rgba(255,255,255,.10);flex-shrink:0;margin:10px 0;position:relative;z-index:2;}
         .f-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#62b0ff;display:flex;align-items:center;gap:4px;margin-bottom:6px;}
         .accent-bar{height:3px;flex-shrink:0;background:linear-gradient(90deg,#000e36,#0038c8,#0062ff,#72c6ff,#fff,#72c6ff,#0062ff,#0038c8,#000e36);}
@@ -138,47 +198,60 @@ export default function App() {
             <div className="body-bg-white" />
             <div style={s({position:"absolute",top:-48,right:-48,width:243,height:243,zIndex:1,pointerEvents:"none",background:"radial-gradient(circle,rgba(100,180,255,.15) 0%,transparent 70%)"})} />
 
-            <div style={s({marginBottom:6,position:"relative",zIndex:2})}>
-              <div style={s({display:"inline-block",width:24,height:2,background:"linear-gradient(90deg,#0050ff,#72c6ff)",borderRadius:2,marginBottom:3})} />
-              <p style={s({fontSize:10,fontWeight:700,letterSpacing:"0.22em",textTransform:"uppercase",color:"#0044cc"})}>We Are Specialised In Commercial Apps (Static & Dynamic Mobile Apps)</p>
+            {/* TWO-LINE HEADING */}
+            <div className="body-heading-wrap">
+              <div className="body-heading-line" />
+              <p className="body-heading-main">We Are Specialised In Commercial Apps</p>
+              <p className="body-heading-sub">— Static &amp; Dynamic Mobile Apps —</p>
             </div>
 
-            <div style={s({display:"flex",gap:36,flex:1,position:"relative",zIndex:2,marginBottom:3})}>
+            {/* BODY ROW */}
+            <div className="body-row">
+
+              {/* BLUE BOX — text slants WITH the parallelogram shape */}
               <div className="feat-box">
-                <p style={s({fontFamily:"'Cormorant Garamond',serif",fontSize:14,fontWeight:700,color:"#001a66",borderBottom:"1px solid rgba(0,60,200,.13)",paddingBottom:6,marginBottom:7})}>We Are Support With You</p>
-                <div style={s({display:"flex",flexDirection:"column",gap:5})}>
-                  {FEATURES.map((f,i)=>(
-                    <div key={i} style={s({display:"flex",gap:6,alignItems:"center"})}>
-                      <div className="feat-dot" />
-                      <span style={s({fontSize:10.5,color:"#1a3a6e",lineHeight:1.3,fontWeight:500})}>{f}</span>
-                    </div>
-                  ))}
+                <div className="feat-box-header">
+                  <span className="feat-box-title">We Are Support With You</span>
+                </div>
+                <div className="feat-box-inner">
+                  <div className="feat-list">
+                    {FEATURES.map((f,i)=>(
+                      <div key={i} style={s({display:"flex",gap:7,alignItems:"center"})}>
+                        <div className="feat-dot" />
+                        <span style={s({fontSize:11,color:"rgba(220,238,255,.95)",lineHeight:1.3,fontWeight:500,whiteSpace:"nowrap"})}>{f}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
+              {/* TWO PARALLELOGRAMS — increased width to show full text */}
               <div className="para-wrap">
+
                 <div className="para para-blue">
                   <div className="para-inner">
-                    <p style={s({fontFamily:"'Cormorant Garamond',serif",fontSize:11,fontWeight:700,color:"#fff",textTransform:"uppercase",letterSpacing:"0.07em",borderBottom:"1px solid rgba(255,255,255,.20)",paddingBottom:5,marginBottom:6})}>Save Your Time</p>
+                    <span className="para-heading" style={s({color:"#fff",borderBottom:"1px solid rgba(255,255,255,.22)"})}>Save Your Time</span>
                     {WHY_US.map((item,i)=>(
-                      <div key={i} style={s({display:"flex",gap:5,alignItems:"flex-start",marginBottom:5})}>
-                        <span style={s({color:"#aaddff",fontSize:7,marginTop:1,flexShrink:0})}>◆</span>
-                        <span style={s({fontSize:9.5,color:"rgba(255,255,255,.92)",lineHeight:1.35})}>{item}</span>
+                      <div key={i} className="para-item">
+                        <span style={s({color:"#aaddff",fontSize:7,flexShrink:0})}>◆</span>
+                        <span className="para-item-txt" style={s({color:"rgba(255,255,255,.92)"})}>{item}</span>
                       </div>
                     ))}
                   </div>
                 </div>
+
                 <div className="para para-dark">
                   <div className="para-inner">
-                    <p style={s({fontFamily:"'Cormorant Garamond',serif",fontSize:11,fontWeight:700,color:"#7ec8ff",textTransform:"uppercase",letterSpacing:"0.07em",borderBottom:"1px solid rgba(100,180,255,.18)",paddingBottom:5,marginBottom:6})}>Benefits</p>
+                    <span className="para-heading" style={s({color:"#7ec8ff",borderBottom:"1px solid rgba(100,180,255,.20)"})}>Benefits</span>
                     {PROCESS.map((step,i)=>(
-                      <div key={i} style={s({display:"flex",gap:5,alignItems:"center",marginBottom:4})}>
-                        <div className="step-badge" style={s({width:15,height:15,fontSize:7.5})}>{i+1}</div>
-                        <span style={s({fontSize:9.5,color:"rgba(255,255,255,.90)",lineHeight:1.3})}>{step}</span>
+                      <div key={i} className="para-item">
+                        <div className="step-badge">{i+1}</div>
+                        <span className="para-item-txt" style={s({color:"rgba(255,255,255,.90)"})}>{step}</span>
                       </div>
                     ))}
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
