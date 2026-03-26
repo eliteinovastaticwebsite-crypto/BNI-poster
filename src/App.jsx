@@ -75,17 +75,18 @@ export default function App() {
           background:linear-gradient(175deg,#001050 0%,#001a70 30%,#0044cc 65%,#0062ff 100%);
           border:1px solid rgba(120,190,255,.25);
           border-radius:8px;
-          padding:0 0 8px 0;
+          padding:0 0 0 0;
           box-shadow:0 6px 28px rgba(0,30,140,.55),inset 0 1px 0 rgba(255,255,255,.10);
           position:relative;
           z-index:2;
           overflow:hidden;
           transform:skewX(-6deg);
+          margin-left: 13px;
         }
         .feat-box-header{
           background:linear-gradient(90deg,#000c3a 0%,#001560 60%,#001e80 100%);
           padding:8px 16px 7px 16px;
-          margin-bottom:7px;
+          margin-bottom:5px;
           border-bottom:1px solid rgba(80,160,255,.20);
           position:relative;
         }
@@ -218,7 +219,7 @@ export default function App() {
                     {FEATURES.map((f,i)=>(
                       <div key={i} style={s({display:"flex",gap:7,alignItems:"center"})}>
                         <div className="feat-dot" />
-                        <span style={s({fontSize:11,color:"rgba(220,238,255,.95)",lineHeight:1.3,fontWeight:500,whiteSpace:"nowrap"})}>{f}</span>
+                        <span style={s({fontSize:12,color:"rgba(220,238,255,.95)",lineHeight:1.5,fontWeight:500,whiteSpace:"nowrap"})}>{f}</span>
                       </div>
                     ))}
                   </div>
@@ -279,10 +280,10 @@ export default function App() {
                 <svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#62b0ff"/></svg>
                 Location
               </div>
-              <p style={s({fontSize:13,fontWeight:700,color:"#e0f0ff",marginBottom:5})}>Eliteinova Technologies Pvt. Ltd.</p>
+              <p style={s({fontSize:13,fontWeight:700,color:"#e0f0ff",marginBottom:5})}>Eliteinova Tech Pvt Ltd</p>
               <p style={s({fontSize:10.5,color:"rgba(190,220,255,.78)",lineHeight:1.75})}>
-                No. 42, Rajiv Gandhi Salai (OMR),<br/>
-                Perungudi, Chennai – 600 096,<br/>
+                No. 78, 1st Street, Kumaran Colony<br/>
+                Vadapalani, Chennai – 600 026,<br/>
                 Tamil Nadu, India
               </p>
             </div>
@@ -293,9 +294,9 @@ export default function App() {
                 Contact Us
               </div>
               {[
-                {icon:"🌐",txt:"www.eliteinova.com"},
-                {icon:"📞",txt:"+91 98765 43210"},
-                {icon:"✉️",txt:"hello@eliteinova.com"},
+                {icon:"🌐",txt:"https://www.eliteinovatechpvtltd.com/"},
+                {icon:"📞",txt:"+91 9940200736"},
+                {icon:"✉️",txt:"eliteinovatechpvtltd@gmail.com"},
               ].map((c,i)=>(
                 <div key={i} style={s({display:"flex",gap:6,alignItems:"center",marginBottom:5})}>
                   <span style={s({fontSize:10})}>{c.icon}</span>
